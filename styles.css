@@ -48,7 +48,7 @@ body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;bac
 .services{}
 .contact{color:#f0f3e8}.contact h2 em{color:#c5ef8c}.contact-intro{color:#d0e1cb}.contact-status{color:#b0cba9}.contact-status span{background:#b7df80;box-shadow:0 0 14px #b7df8066}.contact .button{background:#c5ef8c;color:#073e2d}.contact .button:hover{background:#dcffb5}.contact-specimen{background:#e0e9cf;color:#073e2d;box-shadow:0 10px 35px #001d2660}.contact-specimen>span{color:#426546}.contact-signature{border-color:#afc9a53d;color:#c2d4b4}.editorial-index,.editorial-note{color:#d0e0c5}
 footer{background:#02281fe8;border-color:#b7d4a830;color:#d4e2cd;opacity:1}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){.ambient-one{animation:canopy-light 22s ease-in-out infinite alternate}.ambient-two{animation:canopy-light 27s ease-in-out infinite alternate-reverse}.intro.is-visible .growing-plant{animation:botanical-breathe 9s 6s ease-in-out infinite;transform-origin:50% 92%}.contact.is-visible .contact-photo img{animation:canopy-photo 18s ease-in-out infinite alternate}}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.ambient-one{animation:canopy-light 22s ease-in-out infinite alternate}.ambient-two{animation:canopy-light 27s ease-in-out infinite alternate-reverse}.contact.is-visible .contact-photo img{animation:canopy-photo 18s ease-in-out infinite alternate}}
 @keyframes canopy-light{to{transform:translate(-4vw,6vh);opacity:.3}}
 @keyframes botanical-breathe{0%,100%{transform:rotate(-.6deg)}50%{transform:rotate(.8deg)}}
 @keyframes canopy-photo{to{transform:scale(1.055) translateY(-1%)}}
@@ -77,3 +77,11 @@ footer{background:rgba(1,26,20,.78)}
 @media(prefers-reduced-motion:no-preference){.is-growing .leaf-breath{animation:individual-sway 8s calc(8s + var(--sway-delay)) ease-in-out infinite}}
 @keyframes individual-sway{0%,100%{transform:rotate(-.8deg)}50%{transform:rotate(1deg)}}
 @media(prefers-reduced-motion:reduce){.plant-replay{display:none}.js-motion .plant-bud{opacity:1!important;transform:none}}
+
+/* Canopy growth is driven along the actual branch curves by one short timeline. */
+.growing-plant{width:min(100%,540px);max-width:540px;overflow:visible}
+.growth-leaf-unfurl,.canopy-leaf-sway{transform-origin:0 0;transform-box:view-box}
+.growing-plant.is-growing .canopy-leaf-sway{animation:canopy-leaf-breathe var(--leaf-sway) calc(11s + var(--leaf-phase)) ease-in-out infinite}
+@keyframes canopy-leaf-breathe{0%,100%{transform:rotate(-.65deg)}50%{transform:rotate(.9deg)}}
+@media(max-width:760px){.growing-plant{width:100%;max-width:420px}}
+@media(prefers-reduced-motion:reduce){.growing-plant .canopy-leaf-sway{animation:none!important}}
