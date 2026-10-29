@@ -5,6 +5,7 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
+        entry.target.querySelector('.growing-plant')?.classList.add('is-growing');
         observer.unobserve(entry.target);
       }
     });
@@ -35,3 +36,22 @@ document.addEventListener('keydown', (event) => {
   }
 });
 window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
+
+const plant = document.querySelector('.growing-plant');
+const replay = document.querySelector('.plant-replay');
+if (plant && replay) {
+  replay.hidden = reducedMotion.matches || !document.documentElement.classList.contains('js-motion');
+  replay.addEventListener('click', () => {
+    if (reducedMotion.matches) return;
+    plant.classList.remove('is-growing');
+    // Restart the staged CSS sequence without moving the surrounding section.
+    void plant.getBoundingClientRect();
+    plant.classList.add('is-growing');
+  });
+  reducedMotion.addEventListener('change', () => {
+    replay.hidden = reducedMotion.matches || !document.documentElement.classList.contains('js-motion');
+    if (!reducedMotion.matches && document.querySelector('#about.is-visible')) {
+      plant.classList.add('is-growing');
+    }
+  });
+}

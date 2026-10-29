@@ -11,12 +11,12 @@ body{overflow-x:hidden}.ambient{position:fixed;pointer-events:none;z-index:-1;bo
 .intro .garden-caption{font-size:12px;letter-spacing:.06em;text-align:center;margin:8px auto 0;max-width:280px}
 .growing-plant{width:min(100%,460px);max-width:460px;color:#b7d1a1;overflow:visible}.botanical-guide{opacity:.18;stroke-width:.65}.botanical-notes{font:9px 'DM Sans',sans-serif;letter-spacing:2.4px;opacity:.65}
 .plant-leaf{transform-origin:0 0;transform-box:view-box}
-.js-motion .intro:not(.is-visible) .plant-stem{stroke-dasharray:1;stroke-dashoffset:1}
-.js-motion .intro:not(.is-visible) .plant-leaf{opacity:0;transform:scale(.03,.2) rotate(18deg)}
-.js-motion .intro.is-visible .plant-stem{stroke-dasharray:1;animation:stem-grow 2.7s cubic-bezier(.3,0,.25,1) var(--delay) both}
-.js-motion .intro.is-visible .plant-leaf{animation:leaf-unfurl 2.4s cubic-bezier(.2,.65,.25,1) var(--delay) both}
+.js-motion .growing-plant:not(.is-growing) .plant-stem{stroke-dasharray:1;stroke-dashoffset:1}
+.js-motion .growing-plant:not(.is-growing) .plant-leaf{opacity:0;transform:scale(.03,.2) rotate(18deg)}
+.js-motion .growing-plant.is-growing .plant-stem{stroke-dasharray:1;animation:stem-grow 2.7s cubic-bezier(.3,0,.25,1) var(--delay) both}
+.js-motion .growing-plant.is-growing .plant-leaf{animation:leaf-unfurl 3s cubic-bezier(.2,.65,.25,1) var(--delay) both}
 @keyframes stem-grow{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-@keyframes leaf-unfurl{0%{opacity:0;transform:scale(.03,.2) rotate(18deg)}25%{opacity:1;transform:scale(.15,.7) rotate(10deg)}70%{transform:scale(.85,1.02) rotate(-2deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes leaf-unfurl{0%{opacity:0;transform:rotate(24deg) skewY(18deg) scale(.025,.25)}15%{opacity:1;transform:rotate(19deg) skewY(12deg) scale(.07,.6)}48%{transform:rotate(8deg) skewY(6deg) scale(.38,.98)}78%{transform:rotate(-2deg) skewY(-2deg) scale(.88,1)}100%{opacity:1;transform:none}}
 .catalog{padding-top:100px}.catalog h2 em,.contact h2 em{color:#16734a}.card{overflow:hidden;border-radius:3px}.card-dark{background:#075238}.card-orange{background:#13704c}.card-cream{background:#dae8cd}.card-info{position:relative}.card p{opacity:1}.card-art{transform-origin:center}
 .services{position:relative;overflow:hidden}
 .service-copy>p:not(.eyebrow){color:#d3e9d9}.button-light{background:var(--lime);color:#073e2d}.button-light:hover{background:#ddffb5}.service-list>div{transition:background .3s,padding .3s}.service-list>div:hover{background:#ffffff08;padding-left:10px}.service-list p{opacity:1;color:#d3e9d9}
@@ -69,3 +69,11 @@ footer{background:rgba(1,26,20,.78)}
 .card-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
 .card:hover .card-art{transform:none}
 @media(max-width:760px){.card-art{height:360px}}
+
+.plant-replay{display:block;margin:8px auto 14px;padding:9px 14px;background:#032e234d;border:1px solid #bed9a54d;border-radius:30px;color:#deebce;font:11px 'DM Sans',sans-serif;cursor:pointer;letter-spacing:.05em;transition:background .3s,border-color .3s}.plant-replay[hidden]{display:none}.plant-replay span{margin-right:6px;font-size:17px;vertical-align:middle}.plant-replay:hover{background:#83b46b26;border-color:#bdd6a4}.plant-replay:focus-visible{outline:2px solid #c5ef8c;outline-offset:4px}
+.leaf-breath{transform-origin:0 0}.plant-bud{transform-origin:291px 254px}
+.js-motion .growing-plant:not(.is-growing) .plant-bud{opacity:0}.js-motion .growing-plant.is-growing .plant-bud{animation:bud-emerge 2.5s 5.3s both}
+@keyframes bud-emerge{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:no-preference){.is-growing .leaf-breath{animation:individual-sway 8s calc(8s + var(--sway-delay)) ease-in-out infinite}}
+@keyframes individual-sway{0%,100%{transform:rotate(-.8deg)}50%{transform:rotate(1deg)}}
+@media(prefers-reduced-motion:reduce){.plant-replay{display:none}.js-motion .plant-bud{opacity:1!important;transform:none}}
