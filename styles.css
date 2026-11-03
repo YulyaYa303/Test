@@ -113,3 +113,33 @@ body:before{content:none}
 @media(max-width:760px){.jungle-background{background-position:52% center}.jungle-background:after{background:rgba(0,24,17,.48)}.hero:after{content:none}}
 
 .photo-credit{font-size:10px;opacity:.7}.photo-credit:hover{opacity:1}
+
+/* Botanical atelier: Cyrillic typography and restrained tactile controls. */
+:root{--font-body:'Manrope',Arial,sans-serif;--font-display:'Cormorant Garamond',Georgia,serif;--accent:#e4edce}
+body{font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+.hero h1,.intro h2,.section-head h2,.services h2,.contact h2{font-family:var(--font-display);font-weight:500;letter-spacing:-.035em;line-height:1.02}
+.hero h1{font-size:clamp(64px,7.1vw,108px);margin-bottom:28px}
+.hero h1 em,h2 em{font-weight:400;color:#d3e3b3}.hero h1 em{font-size:.88em}
+.lead{font-size:15px;line-height:1.85;font-weight:400;max-width:340px;color:#e2e9dd}
+.eyebrow{font-family:var(--font-body);font-size:9px;letter-spacing:.22em;font-weight:600;opacity:.85}
+.hero-meta strong,.card h3,.service-list h3,.contact-specimen p{font-family:var(--font-display);font-weight:500}
+.hero-meta strong{font-size:34px;line-height:1.1}.hero-meta small{font-size:10px;letter-spacing:.04em;opacity:.85}
+.hero-note,.editorial-note{font-family:var(--font-display);font-weight:400;font-size:25px}
+.nav{border-color:#dce8ce24;background:#03271c30;backdrop-filter:blur(10px)}
+.nav nav{gap:32px;font-size:12px;letter-spacing:.025em}.logo{font-family:var(--font-body);font-size:11px;letter-spacing:.15em;line-height:1.15}
+.nav nav a{position:relative;padding:10px 0}.nav nav a:after{content:"";position:absolute;left:0;bottom:3px;width:100%;height:1px;background:#d3e3b3;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.nav nav a:hover:after,.nav nav a:focus-visible:after{transform:scaleX(1)}
+.button,.contact .button,.button-light{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-height:60px;padding:10px 12px 10px 26px;border:1px solid #f1f5df9c;border-radius:999px;background:linear-gradient(120deg,#ecf0dc,#cbd9b6);color:#153b2b;font:600 12px/1.4 var(--font-body);letter-spacing:.025em;text-shadow:none;box-shadow:inset 0 1px 0 #ffffffa6,0 8px 28px #001c2426;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.button span{display:grid;place-items:center;flex-shrink:0;width:38px;height:38px;border-radius:50%;background:#153b2b;color:#e9efd8;font:22px/1 Arial,sans-serif;transition:transform .35s ease,background .35s ease}
+.button:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 20%,#fff8 45%,transparent 70%);transform:translateX(-120%);transition:transform .8s ease;pointer-events:none}
+.button:hover,.contact .button:hover,.button-light:hover{background:linear-gradient(120deg,#f2f5e7,#d9e4c6);color:#153b2b;transform:translateY(-3px);box-shadow:inset 0 1px 0 #fff,0 14px 34px #00180e45}
+.button:hover:before{transform:translateX(120%)}.button:hover span{transform:rotate(-35deg);background:#28583e}
+.button:active,.contact .button:active{transform:translateY(0);box-shadow:inset 0 1px 0 #fff7,0 3px 10px #00180e30}
+.nav-cta{border:1px solid #dbe7ce55;border-radius:999px;padding:12px 18px;font:500 11px var(--font-body);letter-spacing:.02em;background:#e7efd509;transition:background .3s,border-color .3s}
+.nav-cta:hover{background:#e7efd51c;border-color:#e0eac5a0}.nav-cta b{font-weight:400;font-size:17px;margin-left:18px}
+.text-link{font:500 12px/1.5 var(--font-body);letter-spacing:.025em;border-color:#d3e3b366!important;padding-bottom:10px;transition:border-color .3s,color .3s}
+.text-link span{display:inline-block;transition:transform .3s}.text-link:hover{color:#e4edce;border-color:#e4edce!important}.text-link:hover span{transform:translate(3px,-3px)}
+.motion-toggle{font-family:var(--font-body);font-size:10px;letter-spacing:.04em;padding:11px 18px;background:#082d23b8;border-color:#dbe7ce55}
+a:focus-visible,button:focus-visible{outline:2px solid #f2f0cc;outline-offset:5px}
+@media(max-width:760px){.hero h1{font-size:clamp(52px,12.6vw,88px)}.hero h1 em{font-size:.82em}.lead{font-size:14px;max-width:310px}.button,.contact .button{gap:20px;min-height:56px;padding-left:22px;font-size:11px}.button span{width:34px;height:34px}.hero-meta{gap:28px}.hero-meta strong{font-size:30px}.intro h2,.section-head h2,.services h2{font-size:clamp(43px,10vw,65px)}.hero-note{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.button:hover,.button:hover span,.text-link:hover span{transform:none}.button:before{display:none}}
