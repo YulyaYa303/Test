@@ -78,21 +78,22 @@ footer{background:rgba(1,26,20,.78)}
 @keyframes individual-sway{0%,100%{transform:rotate(-.8deg)}50%{transform:rotate(1deg)}}
 @media(prefers-reduced-motion:reduce){.plant-replay{display:none}.js-motion .plant-bud{opacity:1!important;transform:none}}
 
-/* Living jungle: layered water, foliage and continuously rendered growth. */
-.hero-art{background:linear-gradient(90deg,#043e2c55,#032d2255),url('living-wall.webp') center/cover;min-height:680px;isolation:isolate;overflow:hidden}
-.jungle-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#043e2c 0%,transparent 25%),linear-gradient(0deg,#04372680,transparent 30%);pointer-events:none;z-index:1}
-.hero-note{z-index:2;text-shadow:0 2px 20px #001910;font-size:24px;right:7%;bottom:7%}
-.jungle-location{position:absolute;z-index:2;top:34px;right:28px;font:9px 'DM Sans',sans-serif;letter-spacing:.2em;color:#deebcf;display:flex;align-items:center;gap:10px}
-.live-dot{width:5px;height:5px;background:#c5ef8c;border-radius:50%;box-shadow:0 0 12px #c5ef8c80}
-.growth-stage{position:relative;width:100%;max-width:520px;margin:auto;aspect-ratio:520/620}
-.growth-canvas{display:block;width:100%;height:100%}
-.growth-caption{position:absolute;bottom:0;left:5%;right:5%;display:flex;justify-content:space-between;gap:14px;color:#b8d3a7;font:8px 'DM Sans',sans-serif;letter-spacing:.14em}
-.growth-phase{letter-spacing:.04em;text-transform:none;font-size:10px}
-.plant-replay{margin:24px auto 14px;padding:11px 18px}
-.motion-toggle{position:fixed;bottom:22px;right:22px;z-index:20;display:flex;align-items:center;gap:9px;padding:11px 15px;border:1px solid #bfd6ab55;border-radius:24px;background:#062e25ed;color:#dfedcf;font:12px 'DM Sans',sans-serif;cursor:pointer;box-shadow:0 5px 24px #001d2133;backdrop-filter:blur(12px)}
-.motion-toggle[hidden]{display:none}.motion-toggle:hover{background:#12513d}.motion-toggle:focus-visible{outline:2px solid #c5ef8c;outline-offset:4px}
+/* Photographic jungle: one continuous image, no illustrated overlays. */
+.hero{position:relative;isolation:isolate;min-height:760px;display:block;background:#042d22 url('living-wall.webp') center/cover}
+.hero-copy{position:relative;z-index:3;width:55%;padding:115px 4vw 85px 8vw}
+.hero-art{position:absolute;inset:0;z-index:0;background:none;animation:none;min-height:0;height:auto}
+.jungle-canvas{display:block;width:100%;height:100%;position:absolute;inset:0;pointer-events:none}
+.hero:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,24,17,.8),rgba(0,24,17,.4) 42%,transparent 72%),linear-gradient(0deg,#032d22,transparent 22%)}
+.hero-note{z-index:2;right:7%;bottom:12%;color:#edf3e6;text-shadow:0 2px 18px #012016;animation:none}
+.jungle-location{position:absolute;z-index:2;right:5%;top:35px;font:9px 'DM Sans',sans-serif;letter-spacing:.2em;color:#e0ebd4;display:flex;align-items:center;gap:9px}
+.live-dot{width:5px;height:5px;border-radius:50%;background:#c5ef8c}
+.hero-meta{margin-top:64px}.hero h1{font-size:clamp(58px,6vw,92px)}
+.photo-specimen{position:relative;overflow:hidden;border-radius:46% 46% 2px 2px;max-width:420px;margin:0 auto 25px;background:#123f2c}
+.photo-specimen img{display:block;width:100%;height:auto;animation:photo-breathe 16s ease-in-out infinite alternate;transform-origin:50% 85%}
+.photo-specimen span{position:absolute;bottom:0;left:0;right:0;padding:36px 20px 18px;background:linear-gradient(transparent,#05291cdd);color:#e1ebd7;font-size:8px;letter-spacing:.13em}
+@keyframes photo-breathe{to{transform:scale(1.025) rotate(.2deg)}}
+.motion-toggle{position:fixed;bottom:22px;right:22px;z-index:20;padding:11px 17px;border:1px solid #bfd6ab55;border-radius:24px;background:#062e25ed;color:#dfedcf;font:12px 'DM Sans',sans-serif;cursor:pointer;backdrop-filter:blur(12px)}
+.motion-toggle[hidden]{display:none}.motion-toggle:focus-visible{outline:2px solid #c5ef8c;outline-offset:4px}
 .motion-paused *,.motion-paused *:before,.motion-paused *:after{animation-play-state:paused!important}
-@media(max-width:760px){.hero-art{min-height:450px;height:450px}.jungle-location{top:22px;right:20px;font-size:8px}.growth-stage{max-width:400px}.hero-note{font-size:21px}.motion-toggle{bottom:14px;right:14px;padding:10px 13px}.intro{gap:38px}}
-@media(prefers-reduced-motion:reduce){.hero-art{animation:none}.motion-toggle{display:none}}
-.hero-art{background:none}
+@media(max-width:760px){.hero{min-height:850px}.hero-copy{width:100%;padding:75px 8vw 300px}.hero h1{font-size:clamp(48px,11vw,76px)}.hero:after{background:linear-gradient(180deg,#01271de0,rgba(0,25,17,.48) 50%,transparent 72%,#032d22)}.hero-meta{margin-top:40px}.hero-note{bottom:10%;font-size:22px;right:8%}.jungle-location{top:auto;bottom:30px;right:8%;font-size:8px}.motion-toggle{right:12px;bottom:12px}.photo-specimen{max-width:340px}}
+@media(prefers-reduced-motion:reduce){.photo-specimen img{animation:none}.motion-toggle{display:none}}
