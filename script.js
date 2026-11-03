@@ -35,3 +35,35 @@ document.addEventListener('keydown', (event) => {
   }
 });
 window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
+
+// Accessible two-mode gallery. A saved choice is optional, never required.
+(() => {
+  const tabs = [...document.querySelectorAll('[data-space]')];
+  if (!tabs.length) return;
+  function selectSpace(value, focus = false) {
+    if (!tabs.some(tab => tab.dataset.space === value)) return;
+    tabs.forEach(tab => {
+      const selected = tab.dataset.space === value;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+      if (selected && focus) tab.focus();
+    });
+    try { localStorage.setItem('jungle-space', value); } catch { /* Storage may be disabled. */ }
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectSpace(tab.dataset.space));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabs.length - 1;
+      if (next !== undefined) { event.preventDefault(); selectSpace(tabs[next].dataset.space, true); }
+    });
+  });
+  try {
+    const saved = localStorage.getItem('jungle-space');
+    if (saved) selectSpace(saved);
+  } catch { /* Keep the compact gallery visible. */ }
+})();

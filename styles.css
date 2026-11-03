@@ -155,3 +155,18 @@ mask-composite:intersect}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.interior-frame:hover img{transform:scale(1.025);filter:brightness(1.025)}}
 @media(max-width:760px){.contact.interior-gallery{grid-template-columns:1fr;gap:24px;padding:50px 5vw 60px}.interior-frame{--edge:9px;width:100%;max-width:520px;justify-self:center}}
 @media(prefers-reduced-motion:reduce){.interior-frame img{transition:none}}
+
+/* One gallery, two achievable scales; keep the photographs unlabelled. */
+.contact.space-showcase{display:block;padding:80px 4vw 100px;overflow:visible;text-shadow:none}
+.space-switch{display:flex;width:fit-content;max-width:100%;margin:0 auto;padding:5px;gap:4px;border:1px solid #dbe5cf55;border-radius:999px;background:#082d25d9;box-shadow:0 8px 28px #001e1833;backdrop-filter:blur(14px)}
+.space-switch button{appearance:none;border:0;border-radius:999px;background:transparent;color:#e4eadc;padding:15px 26px;font:500 12px/1.4 var(--font-body);cursor:pointer;transition:background .3s,color .3s,box-shadow .3s;min-height:48px}
+.space-switch button[aria-selected="true"]{background:#e5edcf;color:#163d2c;box-shadow:0 2px 9px #001f2433}
+.space-switch button:hover:not([aria-selected="true"]){background:#e4edcf12}
+.space-switch button:focus-visible,.space-panel:focus-visible{outline:2px solid #e8edce;outline-offset:4px}
+.space-description{max-width:650px;min-height:56px;margin:24px auto 32px;text-align:center;font:400 14px/1.8 var(--font-body);color:#eef2e7;text-wrap:pretty;text-shadow:0 2px 10px #00190f}
+.space-images{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,32px)}
+.space-panel[hidden]{display:none}
+.space-panel:not([hidden]){animation:space-appear .45s ease both}
+@keyframes space-appear{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:760px){.contact.space-showcase{padding:50px 5vw 60px}.space-switch{width:100%;border-radius:28px}.space-switch button{flex:1;min-width:0;padding:13px 10px;font-size:11px}.space-description{font-size:13px;min-height:94px;margin:22px auto 26px;max-width:420px}.space-images{grid-template-columns:1fr;gap:24px}}
+@media(prefers-reduced-motion:reduce){.space-panel:not([hidden]){animation:none}.space-switch button{transition:none}}
