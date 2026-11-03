@@ -97,3 +97,17 @@ footer{background:rgba(1,26,20,.78)}
 .motion-paused *,.motion-paused *:before,.motion-paused *:after{animation-play-state:paused!important}
 @media(max-width:760px){.hero{min-height:850px}.hero-copy{width:100%;padding:75px 8vw 300px}.hero h1{font-size:clamp(48px,11vw,76px)}.hero:after{background:linear-gradient(180deg,#01271de0,rgba(0,25,17,.48) 50%,transparent 72%,#032d22)}.hero-meta{margin-top:40px}.hero-note{bottom:10%;font-size:22px;right:8%}.jungle-location{top:auto;bottom:30px;right:8%;font-size:8px}.motion-toggle{right:12px;bottom:12px}.photo-specimen{max-width:340px}}
 @media(prefers-reduced-motion:reduce){.photo-specimen img{animation:none}.motion-toggle{display:none}}
+
+/* One viewport-sized scene remains behind the entire document. */
+body{background:#032d22;isolation:isolate}
+body:before{content:none}
+.jungle-background{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;background:#032d22 url('jungle-waterfall.webp') center/cover no-repeat}
+.jungle-background:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,24,17,.72),rgba(0,24,17,.32) 48%,rgba(0,24,17,.16));pointer-events:none}
+.jungle-background .jungle-canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero,.intro,.catalog,.services,.contact,footer,.nav{background:transparent}
+.hero:after{content:none}
+.ambient{display:none}
+.hero-art{background:none}
+.intro,.services,.contact{ text-shadow:0 2px 16px #001b15 }
+.card,.contact-specimen{ text-shadow:none }
+@media(max-width:760px){.jungle-background{background-position:74% center}.jungle-background:after{background:rgba(0,24,17,.48)}.hero:after{content:none}}
