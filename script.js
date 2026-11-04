@@ -67,3 +67,24 @@ window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
     if (saved) selectSpace(saved);
   } catch { /* Keep the compact gallery visible. */ }
 })();
+
+// The room stays fixed; each stop reveals another cumulative planting layer.
+(() => {
+  const slider = document.querySelector('#vibe-range');
+  if (!slider) return;
+  const names = ['Чистый лист', 'Первые акценты', 'Ближе к природе', 'Зелёный уют', 'Живые полки', 'Свои тропики', 'Домашние джунгли'];
+  const descriptions = ['Светлая гостиная без растений', 'Два зелёных акцента на столике и комоде', 'Зелёные акценты и высокая пальма у окна', 'Пальма, алоказия, сциндапсус и пышный папоротник', 'Растения на столе, комоде, полу и подвесных полках', 'Фитостена над диваном дополняет озеленение комнаты', 'Пышные домашние джунгли: фитостена, зелёные полки и растения по всей комнате'];
+  const layers = [...document.querySelectorAll('[data-vibe-level]')];
+  function render() {
+    const level = Math.max(0, Math.min(6, Math.round(Number(slider.value) || 0)));
+    slider.value = String(level);
+    slider.setAttribute('aria-valuetext', `${names[level]}, ${level + 1} из 7`);
+    document.querySelector('#vibe-level').textContent = names[level];
+    document.querySelector('#vibe-counter').textContent = `0${level + 1} / 07`;
+    document.querySelector('#vibe-scene').setAttribute('aria-label', descriptions[level]);
+    slider.parentElement.style.setProperty('--vibe-progress', `${level / 6 * 100}%`);
+    layers.forEach(layer => layer.classList.toggle('is-visible', Number(layer.dataset.vibeLevel) <= level));
+  }
+  slider.addEventListener('input', render);
+  render();
+})();
