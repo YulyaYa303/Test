@@ -10,7 +10,7 @@ The room and cutouts are generated visualizations. Plant colours are based on re
 
 ## Revised spatial composition
 
-Each scene image layer is used once. The tabletop has one Oxalis, the left corner one tall Strelitzia, and the foreground is left clear. Five hanging plants are arranged in perspective at staggered heights; five other compact plants occupy the illuminated rack.
+Each scene image layer is used once. The tabletop has one Oxalis, the left corner one tall Strelitzia, and the foreground is left clear. Five hanging plants are arranged in perspective at staggered heights; twelve different compact plants occupy the full illuminated rack.
 
 - Strelitzia nicolai: large paddle-shaped leaves. https://www.rhs.org.uk/plants/strelitzia/how-to-grow-strelitzia
 - Oxalis triangularis: purple trifoliate foliage with triangular leaflets. https://www.rhs.org.uk/plants/50979/oxalis-triangularis/details
@@ -25,4 +25,12 @@ Each scene image layer is used once. The tabletop has one Oxalis, the left corne
 - Rack Begonia rex: https://www.rhs.org.uk/plants/101666/begonia-rex-r/details
 - Rack Maranta leuconeura: https://www.rhs.org.uk/plants/119598/maranta-leuconeura/details
 
-Visible composition layers per slider stop: 0, 2, 4, 6, 8, 10, 11. The hanging system and illuminated rack each contain five different plants. The room, books, vase and tray remain fixed. The about section uses a separate multicolour living-wall visualization.
+The room now has nine stops: empty, tabletop and three small accents, side plants and shelves, Strelitzia, ceiling hangers, living wall, sparse rack, medium rack and miniature collection, fully planted rack and shelves. Three rack images are mutually exclusive and retain the same position. The room, books, vase and tray remain fixed.
+
+Additional botanical references: Ficus pumila White Sunny (cream margins), Peperomia argyreia (silver watermelon pattern), Hypoestes (white spotting), Haworthia (succulent rosettes).
+- https://www.rhs.org.uk/plants/362184/ficus-pumila-white-sunny-v/details
+- https://www.rhs.org.uk/plants/19968/peperomia-argyreia/details
+- https://www.rhs.org.uk/plants/hypoestes
+- https://www.rhs.org.uk/plants/haworthia
+
+The planting is an illustrative visualization, not a horticultural lighting or irrigation plan.

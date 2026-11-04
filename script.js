@@ -72,18 +72,18 @@ window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
 (() => {
   const slider = document.querySelector('#vibe-range');
   if (!slider) return;
-  const names = ['Чистый лист', 'Первые акценты', 'Ближе к природе', 'Зелёный уют', 'Живые полки', 'Свои тропики', 'Домашние джунгли'];
-  const descriptions = ['Светлая гостиная с книгами, вазой и подносом, без растений', 'Пышная фиолетовая кислица на столе и белый каладиум на комоде', 'Высокая стрелиция у окна и аглаонема дополняют первые акценты', 'Папоротник на комоде и розовый сингониум на полке', 'Разные растения на полках рядом с книгами и керамикой', 'Фитостена и пять разных ампельных растений вдоль окна, с учётом перспективы', 'Домашние джунгли с высокой стрелицией, кислицей, подвесами и этажеркой с подсветкой и пятью разными растениями'];
+  const names = ['Чистый лист', 'Первые акценты', 'Зелёный уют', 'Большая стрелиция', 'Воздушный сад', 'Живая стена', 'Своя коллекция', 'Больше разнообразия', 'Домашние джунгли'];
+  const descriptions = ['Светлая бело-бежевая гостиная с книгами и керамикой, без растений', 'Кислица на столе и три разных растения на полке и комоде', 'Растения по сторонам комнаты и дополнительные растения на полках', 'Большая стрелиция в левом углу дополняет композицию', 'Пять разных пышных растений на отдельных потолочных подвесах разной высоты у окна', 'Добавлена фитостена над диваном', 'Справа появилась этажерка с подсветкой и первыми растениями, развёрнутая торцом', 'Этажерка, полки и комод постепенно заполняются разными растениями', 'Пышная коллекция: заполненная этажерка, миниатюрные растения на полках и комоде, пёстрые листья и свисающие побеги'];
   const layers = [...document.querySelectorAll('[data-vibe-level]')];
   function render() {
-    const level = Math.max(0, Math.min(6, Math.round(Number(slider.value) || 0)));
+    const level = Math.max(0, Math.min(8, Math.round(Number(slider.value) || 0)));
     slider.value = String(level);
-    slider.setAttribute('aria-valuetext', `${names[level]}, ${level + 1} из 7`);
+    slider.setAttribute('aria-valuetext', `${names[level]}, ${level + 1} из 9`);
     document.querySelector('#vibe-level').textContent = names[level];
-    document.querySelector('#vibe-counter').textContent = `0${level + 1} / 07`;
+    document.querySelector('#vibe-counter').textContent = `0${level + 1} / 09`;
     document.querySelector('#vibe-scene').setAttribute('aria-label', descriptions[level]);
-    slider.parentElement.style.setProperty('--vibe-progress', `${level / 6 * 100}%`);
-    layers.forEach(layer => layer.classList.toggle('is-visible', Number(layer.dataset.vibeLevel) <= level));
+    slider.parentElement.style.setProperty('--vibe-progress', `${level / 8 * 100}%`);
+    layers.forEach(layer => layer.classList.toggle('is-visible', Number(layer.dataset.vibeLevel) <= level && (!layer.dataset.vibeUntil || level <= Number(layer.dataset.vibeUntil))));
   }
   slider.addEventListener('input', render);
   render();
