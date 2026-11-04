@@ -201,10 +201,10 @@ mask-composite:intersect}
 .vibe-layer img{width:100%;height:auto;display:block;filter:drop-shadow(3px 5px 3px #2f281e1c)}
 .vibe-wall{left:30%;top:19%;width:37%;z-index:1}
 .vibe-palm{left:12%;bottom:18%;width:20%;z-index:2}
-.vibe-console{left:81%;bottom:36.5%;width:16%;z-index:3}
-.vibe-shelf-top{left:78%;top:24.2%;width:12%;z-index:4}
+.vibe-console{left:79%;bottom:36.7%;width:14%;z-index:3}
+.vibe-shelf-top{left:76%;top:26%;width:10%;z-index:4}
 .vibe-shelf-bottom{left:91%;bottom:54.3%;width:6%;z-index:4}
-.vibe-table{left:44%;bottom:24%;width:6.5%;z-index:6}
+.vibe-table{left:40%;bottom:24%;width:10.5%;z-index:6}
 .vibe-first{left:74%;top:51.2%;width:10%;z-index:4}
 .vibe-floor{left:82%;bottom:6%;width:19%;z-index:7}
 .vibe-floor-fern{left:18%;bottom:8%;width:16%;z-index:7}
@@ -232,3 +232,15 @@ mask-composite:intersect}
 .vibe-controls p{font:400 12px/1.7 var(--font-body);color:#63705f;margin:0}
 @media(max-width:760px){.vibe-controls{padding:24px 6vw 30px}.vibe-scene-caption{inset:10px 3vw auto;font-size:6px;letter-spacing:.08em}.vibe-scene-caption span{padding:6px 8px}.vibe-level-line{font-size:9px;gap:5px}.vibe-level-line output{font-size:11px}.vibe-controls p{font-size:11px;max-width:290px;margin:auto}.vibe-layer img{filter:drop-shadow(1px 2px 1px #2f281e18)}}
 @media(prefers-reduced-motion:reduce){.vibe-layer,.vibe-track-fill{transition:none}}
+
+/* Naturally coloured cultivars and a suspended garden, added in small groups. */
+.vibe-pink-shelf{left:84%;bottom:54.3%;width:7.5%;z-index:4}
+.vibe-red-floor{left:5%;bottom:10%;width:12%;z-index:7}
+.vibe-white-console{left:87.5%;bottom:39.2%;width:9%;z-index:4}
+.vibe-white-table{left:53%;bottom:24.5%;width:9%;z-index:6}
+.vibe-red-shelf{left:84%;bottom:65.4%;width:6.5%;z-index:4}
+.vibe-pink-top{left:90%;bottom:65.4%;width:6%;z-index:4}
+.vibe-hanging{left:1%;top:.5%;width:20%;z-index:5}
+.vibe-small-fern{left:26%;bottom:15%;width:10%;z-index:6}
+.vibe-red-console{left:76.5%;bottom:39.2%;width:7.5%;z-index:5}
+.vibe-pink-floor{left:70%;bottom:8%;width:13%;z-index:8}
